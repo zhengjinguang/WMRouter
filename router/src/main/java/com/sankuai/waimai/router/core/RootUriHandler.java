@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 
+import com.sankuai.waimai.router.R;
 import com.sankuai.waimai.router.utils.LazyInitHelper;
 
 
@@ -70,14 +71,14 @@ public class RootUriHandler extends ChainedHandler {
     public void startUri(@NonNull UriRequest request) {
         if (request == null) {
 
-            String msg = "UriRequest为空";
+            String msg = mContext.getString(R.string.wm_router_error_empty_request);
             Debugger.fatal(msg);
             UriRequest req = new UriRequest(mContext, Uri.EMPTY).setErrorMessage(msg);
             onError(req, UriResult.CODE_BAD_REQUEST);
 
         } else if (request.getContext() == null) {
 
-            String msg = "UriRequest.Context为空";
+            String msg = mContext.getString(R.string.wm_router_error_empty_context);;
             Debugger.fatal(msg);
             UriRequest req = new UriRequest(mContext, request.getUri(), request.getFields())
                     .setErrorMessage(msg);
@@ -85,7 +86,7 @@ public class RootUriHandler extends ChainedHandler {
 
         } else if (request.isUriEmpty()) {
 
-            String msg = "跳转链接为空";
+            String msg = mContext.getString(R.string.wm_router_error_empty_uri);
             Debugger.e(msg);
             request.setErrorMessage(msg);
             onError(request, UriResult.CODE_BAD_REQUEST);

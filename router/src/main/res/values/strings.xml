@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">library</string>
+    <string name="wm_router_error_none_support">不支持的跳转链接</string>
+    <string name="wm_router_error_none_permission">没有权限</string>
+    <string name="wm_router_error_start">跳转失败</string>
+    <string name="wm_router_error_empty_uri">跳转链接为空</string>
+    <string name="wm_router_error_empty_context">UriRequest.Context为空</string>
+    <string name="wm_router_error_empty_request">UriRequest为空</string>
 </resources>

@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.widget.Toast;
 
+import com.sankuai.waimai.router.R;
 import com.sankuai.waimai.router.core.OnCompleteListener;
 import com.sankuai.waimai.router.core.Debugger;
 import com.sankuai.waimai.router.core.UriRequest;
@@ -28,14 +29,13 @@ public class DefaultOnCompleteListener implements OnCompleteListener {
         if (TextUtils.isEmpty(text)) {
             switch (resultCode) {
                 case CODE_NOT_FOUND:
-                    text = "不支持的跳转链接";
+                    text = request.getContext().getString(R.string.wm_router_error_none_support);
                     break;
                 case CODE_FORBIDDEN:
-                    text = "没有权限";
+                    text = request.getContext().getString(R.string.wm_router_error_none_permission);
                     break;
                 default:
-                    text = "跳转失败";
-                    break;
+                    text = request.getContext().getString(R.string.wm_router_error_start);
             }
         }
         text += "(" + resultCode + ")";
